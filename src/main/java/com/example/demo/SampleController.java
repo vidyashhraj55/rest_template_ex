@@ -70,5 +70,20 @@ public class SampleController  {
     
     		return new ResponseEntity<Student>(HttpStatus.OK);
     	}
+   @PutMapping("/student/{Rollno}")
+   public ResponseEntity<Student> putMethodName(@PathVariable Long Rollno, @RequestBody  Student student) {
+ 
+	   HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      HttpEntity<Student> requestEntity = new HttpEntity<Student>(student, headers);
+	      restTemplate.put("http://localhost:8080/students/"+Rollno,student,Student.class);
+       return new ResponseEntity<Student>(HttpStatus.OK);
+   }
+   @DeleteMapping("student/{rollno}")
+   public void delete(@PathVariable Long Rollno) {
+	   HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      restTemplate.delete("http://localhost:8080//students/"+Rollno);
+   }
 
 }
