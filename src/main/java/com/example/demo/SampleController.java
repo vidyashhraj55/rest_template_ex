@@ -39,7 +39,7 @@ public class SampleController  {
 	
 	@Autowired
 	MyRepository repo;
-//    private static final String RESOURCE_URL = "http://localhost:8082/spring-rest";
+//    pivate static final String RESOURCE_URL = "http://localhost:8082/spring-rest";
     
     @Autowired
     private RestTemplate restTemplate;
