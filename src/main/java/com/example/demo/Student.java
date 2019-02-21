@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,10 +10,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
-public class Student {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-	
+@Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Student{
 
 	public Student() {}
 	
@@ -29,13 +31,9 @@ public class Student {
 		this.rollNo = rollNo;
 	}
 
-	@NotNull
-	@Size(min=2,message="studentname atleast 10charcter",max=10)
 	private String name;
 	
 
-	@NotNull
-	@Size(min=5,message="altleast 5 charcter")
 	private String standard;
     
 	private Date CreateOn =new Date();
